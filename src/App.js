@@ -4,6 +4,7 @@ import { useState } from "react";
 import Start from "./components/Start";
 import Upload from "./components/Upload";
 import Improvements from "./components/Improvements";
+import Loading from "./components/Loading";
 
 function App() {
 
@@ -32,7 +33,8 @@ function App() {
     <>
       {/* <Start/> */}
       {/* <Upload/> */}
-      <Improvements/>
+      {/* <Improvements/> */}
+      <Loading/>
     </>
     // <>
     // <div>
