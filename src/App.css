@@ -18,8 +18,6 @@
   align-items: center;
 }
 
-
-/* START PAGE */
 .text-title {
   color: #fff;
   font-family: Inter;
@@ -29,6 +27,8 @@
   line-height: normal;
 }
 
+
+/* START PAGE */
 .start-paragraph {
   color: #fff;
   font-family: Inter;
