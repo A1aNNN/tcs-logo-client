@@ -80,3 +80,20 @@
 
   cursor: pointer;
 }
+
+
+/* IMPROVEMENTS PAGE */
+.improvements-input {
+  width: 332px;
+  height: 62px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #fff;
+  border-top: hidden;
+  border-right: hidden;
+  border-left: hidden;
+  background: #191919;
+
+  color: #a9a9a9;
+  font-family: Inter;
+  font-size: 25px;
+}

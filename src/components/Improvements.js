@@ -14,9 +14,9 @@ const Improvements = () => {
                 Logo Generator
             </Text>
             <Text className='text-instruction'>
-                1. Upload your logo PNG
+                2. Add some improvement points
             </Text>
-            <Input/>
+            <Input className='improvements-input' placeholder='Type your answer here'/>
         </Box>
     </Box>
   )
