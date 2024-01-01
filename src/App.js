@@ -5,6 +5,7 @@ import Start from "./components/Start";
 import Upload from "./components/Upload";
 import Improvements from "./components/Improvements";
 import Loading from "./components/Loading";
+import Output from "./components/Output";
 
 function App() {
 
@@ -34,7 +35,8 @@ function App() {
       {/* <Start/> */}
       {/* <Upload/> */}
       {/* <Improvements/> */}
-      <Loading/>
+      {/* <Loading/> */}
+      <Output/>
     </>
     // <>
     // <div>
