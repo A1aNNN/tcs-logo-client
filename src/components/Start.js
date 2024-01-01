@@ -1,6 +1,5 @@
 import React from 'react'
 import "./../App.css";
-// import logo from "./images/TCSLogo.svg"
 import logo from './../images/TCSLogo.png'
 import { Box, Button, Image, Text } from '@chakra-ui/react';
 

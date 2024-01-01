@@ -50,4 +50,33 @@
   font-family: Inter;
   font-size: 25px;
   font-weight: 400;
+
+  cursor: pointer;
+}
+
+
+/* UPLOAD PAGE */
+.text-instruction {
+  color: #fff;
+  font-family: Inter;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.upload-button {
+  margin-top: 45px;
+  
+  width: 207px;
+  height: 63px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  border: 1px solid #a9a9a9;
+  background: #191919;
+
+  color: #a9a9a9;
+  font-family: Inter;
+  font-size: 25px;
+  font-weight: 400;
+
+  cursor: pointer;
 }

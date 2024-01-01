@@ -2,6 +2,8 @@ import "./App.css";
 import axios from 'axios';
 import { useState } from "react";
 import Start from "./components/Start";
+import Upload from "./components/Upload";
+import Improvements from "./components/Improvements";
 
 function App() {
 
@@ -28,7 +30,9 @@ function App() {
 
   return (
     <>
-      <Start/>
+      {/* <Start/> */}
+      {/* <Upload/> */}
+      <Improvements/>
     </>
     // <>
     // <div>
