@@ -17,6 +17,8 @@ function App() {
 
   const [page, setPage] = useState(0);
 
+  const apiKey = process.env.GPT_API_KEY;
+
   const handleNext = () => {
     setPage(page + 1);
     console.log(userPrompt, "SDASFAFAFSA")
