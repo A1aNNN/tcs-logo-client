@@ -36,6 +36,16 @@
   font-style: normal;
   font-weight: 300;
   line-height: normal;
+  width: 700px;
+}
+
+@media (max-width: 1000px) {
+
+  .start-paragraph {
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 70%;
+  }
 }
 
 .start-button {
