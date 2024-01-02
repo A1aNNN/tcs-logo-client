@@ -3,7 +3,7 @@ import "./../App.css";
 import logo from './../images/TCSLogo.png'
 import { Box, Button, Image, Text } from '@chakra-ui/react';
 
-const Start = () => {
+const Start = ({ onNext }) => {
   return (
     <Box className='app' minH='100vh' w='100%'>
         <Box className='logo-box'>
@@ -24,7 +24,7 @@ const Start = () => {
                 well flushed out product, please fill out the Typeform to meet 
                 with the TCS team!
             </Text>
-            <Button className='start-button'>
+            <Button className='start-button' onClick={onNext}>
                 Get started here
             </Button>
         </Box>

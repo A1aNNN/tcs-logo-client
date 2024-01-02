@@ -124,3 +124,23 @@
   border-radius: 20px;
   margin: 20px;
 }
+
+.restart-button {
+  margin-top: 20px;
+
+  background-color: #fff;
+  width: 160px;
+  height: 38px;
+  border-radius: 100px;
+  border-top: hidden;
+  border-right: hidden;
+  border-left: hidden;
+  border-bottom: hidden;
+
+  color: #191919;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+
+  cursor: pointer;
+}

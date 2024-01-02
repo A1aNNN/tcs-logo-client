@@ -2,7 +2,7 @@ import { Box, Button, Image, Text } from '@chakra-ui/react'
 import logo from './../images/TCSLogo.png'
 import React from 'react'
 
-const Upload = () => {
+const Upload = ({ onNext }) => {
   return (
     <Box className='app' minH='100vh' w='100%'>
         <Box className='logo-box'>
@@ -16,7 +16,7 @@ const Upload = () => {
             <Text className='text-instruction'>
                 1. Upload your logo PNG
             </Text>
-            <Button className='upload-button'>
+            <Button className='upload-button' onClick={onNext}>
                 Upload here
             </Button>
         </Box>

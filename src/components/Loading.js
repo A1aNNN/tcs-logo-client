@@ -1,8 +1,17 @@
 import { Box, Image, Text } from '@chakra-ui/react'
 import logo from './../images/TCSLogo.png'
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const Loading = () => {
+const Loading = ({ onNext }) => {
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            onNext();
+        }, 3000);
+
+        return () => clearTimeout(timeoutId);
+    }, []);
+
   return (
     <Box className='app' minH='100vh' w='100%'>
         <Box className='logo-box'>
