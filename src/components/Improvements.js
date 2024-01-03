@@ -2,7 +2,7 @@ import { Box, Image, Input, Text } from '@chakra-ui/react'
 import logo from './../images/TCSLogo.png'
 import React, { useState } from 'react'
 
-const Improvements = ({ onNext, handleSubmit, updateUserPrompt }) => {
+const Improvements = ({ onNext, handleSubmit, updateUserPrompt, setImprovementsInput, generateImage, userPrompt }) => {
 
     const [inputValue, setInputValue] = useState("");
 
@@ -10,7 +10,14 @@ const Improvements = ({ onNext, handleSubmit, updateUserPrompt }) => {
         if (event.key === 'Enter') {
             onNext();
             handleSubmit();
+            updateUserPrompt();
+            generateImage(inputValue);
         }
+    }
+
+    const handleInputChange = (event) => {
+        setInputValue(event.target.value);
+        setImprovementsInput(event.target.value);
     }
 
 
