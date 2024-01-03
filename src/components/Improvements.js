@@ -1,24 +1,24 @@
 import { Box, Image, Input, Text } from '@chakra-ui/react'
 import logo from './../images/TCSLogo.png'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Improvements = ({ onNext, handleSubmit, updateUserPrompt, setImprovementsInput, generateImage, userPrompt }) => {
 
     const [inputValue, setInputValue] = useState("");
 
-    const handleKeyPress = (event) => {
+    const handleKeyPress = async (event) => {
         if (event.key === 'Enter') {
             onNext();
             handleSubmit();
-            updateUserPrompt();
-            generateImage(inputValue);
+            await updateUserPrompt(inputValue);
+            // generateImage();
         }
     }
 
-    const handleInputChange = (event) => {
-        setInputValue(event.target.value);
-        setImprovementsInput(event.target.value);
-    }
+    // Example of useEffect
+    // useEffect(() => {
+    //     console.log(inputValue, ' is the changed input');
+    // }, [inputValue])
 
 
   return (
