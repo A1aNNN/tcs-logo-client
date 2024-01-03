@@ -29,6 +29,25 @@
 
 
 /* START PAGE */
+.start-content {
+  opacity: 0;
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.start-content.active {
+  opacity: 1;
+}
+
+
 .start-paragraph {
   color: #fff;
   font-family: Inter;
@@ -121,6 +140,17 @@
   font-style: normal;
   font-weight: 300;
   line-height: normal;
+
+  width: 700px;
+}
+
+@media (max-width: 1000px) {
+
+  .text-paragraph {
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 70%;
+  }
 }
 
 .output-logos-container {
