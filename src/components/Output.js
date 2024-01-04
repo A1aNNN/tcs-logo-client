@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from './../images/TCSLogo.png'
 import { Box, Button, Image, Text } from '@chakra-ui/react'
+import Footer from './Footer'
 
 const Output = ({ redo, response, imageUrl }) => {
   return (
@@ -22,12 +23,14 @@ const Output = ({ redo, response, imageUrl }) => {
                 {/* <Box className='new-logo'></Box>
                 <Box className='new-logo'></Box> */}
             </Box>
-            <Text className='text-paragraph'>
+
+            {/* FOR CHAT GPT RESPONSE */}
+            {/* <Text className='text-paragraph'>
                 Improvements:
             </Text>
             <Text className='text-paragraph'>
                 {response}
-            </Text>
+            </Text> */}
             <Text className='text-paragraph'>
                 For a more polished final product, please fill out the Typeform to meet 
                 with the TCS team!
@@ -36,6 +39,8 @@ const Output = ({ redo, response, imageUrl }) => {
                 Restart
             </Button>
         </Box>
+
+        <Footer/>
     </Box>
   )
 }

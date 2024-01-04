@@ -1,8 +1,9 @@
 import { Box, Image, Input, Text } from '@chakra-ui/react'
 import logo from './../images/TCSLogo.png'
 import React, { useEffect, useState } from 'react'
+import Footer from './Footer';
 
-const Improvements = ({ onNext, handleSubmit, updateUserPrompt, setImprovementsInput, generateImage, userPrompt }) => {
+const Improvements = ({ onNext, handleSubmit, updateUserPrompt }) => {
 
     const [inputValue, setInputValue] = useState("");
 
@@ -11,7 +12,6 @@ const Improvements = ({ onNext, handleSubmit, updateUserPrompt, setImprovementsI
             onNext();
             handleSubmit();
             await updateUserPrompt(inputValue);
-            // generateImage();
         }
     }
 
@@ -42,6 +42,8 @@ const Improvements = ({ onNext, handleSubmit, updateUserPrompt, setImprovementsI
                 onKeyDown={handleKeyPress}
             />
         </Box>
+
+        <Footer/>
     </Box>
   )
 }

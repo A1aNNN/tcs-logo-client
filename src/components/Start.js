@@ -1,16 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./../App.css";
 import logo from './../images/TCSLogo.png'
 import { Box, Button, Image, Text } from '@chakra-ui/react';
+import Footer from './Footer';
 
 const Start = ({ onNext }) => {
+
+    useEffect(() => {
+        const contentElement = document.querySelector('.start-content');
+        contentElement.classList.add('active');
+    }, []);
+
+
   return (
     <Box className='app' minH='100vh' w='100%'>
         <Box className='logo-box'>
             <Image className='logo' src={logo}/>
         </Box>
 
-        <Box className='content' display='flex' flexDirection='column'>
+        <Box className='content start-content' display='flex' flexDirection='column'>
             <Text className='text-title'>
                 Logo Generator
             </Text>
@@ -21,13 +29,15 @@ const Start = ({ onNext }) => {
             </Text>
             <Text className='start-paragraph'>
                 Please keep in mind that these logos are tentative. To receive a 
-                well flushed out product, please fill out the Typeform to meet 
+                finalized logo, please fill out the Typeform to meet 
                 with the TCS team!
             </Text>
             <Button className='start-button' onClick={onNext}>
                 Get started here
             </Button>
         </Box>
+
+        <Footer/>
     </Box>
   )
 }

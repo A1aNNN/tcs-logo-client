@@ -1,6 +1,7 @@
 import { Box, Button, Image, Text } from '@chakra-ui/react'
 import logo from './../images/TCSLogo.png'
 import React from 'react'
+import Footer from './Footer'
 
 const Upload = ({ onNext }) => {
   return (
@@ -20,6 +21,8 @@ const Upload = ({ onNext }) => {
                 Upload here
             </Button>
         </Box>
+
+        <Footer/>
     </Box>
   )
 }
