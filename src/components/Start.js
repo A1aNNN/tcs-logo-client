@@ -19,16 +19,16 @@ const Start = ({ onNext }) => {
         </Box>
 
         <Box className='content start-content' display='flex' flexDirection='column'>
-            <Text className='text-title'>
+            <Text className='text-title-start'>
                 Logo Generator
             </Text>
             <Text className='start-paragraph'>
                 Welcome to the TCS Logo Generator! Please attach a PNG image of 
                 your current logo, as well as a few points of improvement to receive 
-                three improved logos.
+                an improved logo.
             </Text>
             <Text className='start-paragraph'>
-                Please keep in mind that these logos are tentative. To receive a 
+                Please keep in mind that the logo is tentative. To receive a 
                 finalized logo, please fill out the Typeform to meet 
                 with the TCS team!
             </Text>
