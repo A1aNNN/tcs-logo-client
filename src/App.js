@@ -1,9 +1,3 @@
-// require('dotenv').config();
-
-// const secret_key = process.env.GPT_API_KEY
-
-// console.log(secret_key, " is the secret key");
-
 import "./App.css";
 import axios from 'axios';
 import { useState } from "react";
