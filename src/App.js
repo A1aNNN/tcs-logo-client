@@ -16,19 +16,6 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true,
 });
 
-// const generateImage = async () => {
-
-//   const response = await openai.images.generate({
-//     model: "dall-e-3",
-//     prompt: userPrompt,
-//     n: 1,
-//   })
-//   const urlData = response.data[0].url;
-//   console.log(response?.data, "DATATATATATATATA")
-//   console.log(urlData);
-//   setImageUrl(urlData);
-// }
-
 
 function App() {
 
