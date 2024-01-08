@@ -1,3 +1,9 @@
+// require('dotenv').config();
+
+// const secret_key = process.env.GPT_API_KEY
+
+// console.log(secret_key, " is the secret key");
+
 import "./App.css";
 import axios from 'axios';
 import { useState } from "react";
@@ -7,7 +13,27 @@ import Improvements from "./components/Improvements";
 import Loading from "./components/Loading";
 import Output from "./components/Output";
 
-import { Configuation, OpenAIApi } from 'openai';
+
+const OpenAI = require("openai")
+
+const openai = new OpenAI({
+  organization: process.env.REACT_APP_OPENAI_ORGANIZATION,
+  apiKey: process.env.REACT_APP_OPENAI_KEY,
+  dangerouslyAllowBrowser: true,
+});
+
+// const generateImage = async () => {
+
+//   const response = await openai.images.generate({
+//     model: "dall-e-3",
+//     prompt: userPrompt,
+//     n: 1,
+//   })
+//   const urlData = response.data[0].url;
+//   console.log(response?.data, "DATATATATATATATA")
+//   console.log(urlData);
+//   setImageUrl(urlData);
+// }
 
 
 function App() {
@@ -21,7 +47,6 @@ function App() {
 
   const handleNext = () => {
     setPage(page + 1);
-    console.log(userPrompt, "SDASFAFAFSA")
   }
 
   const redo = () => {
@@ -45,70 +70,59 @@ function App() {
       });
   };
 
-  // const generateImage = (e) => {
-  //   e.preventDefault();
-
-  //   axios
-  //     .post("http://localhost:8080/generate-logo", { prompt })
-
-  //     .then((res) => {
-  //       console.log('Axios Response:', res);
-  //       setResponse(res?.data?.content);
-  //     })
-  // }
 
   // FOR DALLE
-  const [userPrompt, setUserPrompt] = useState(""); //the prompt of what image to generate
-  const [number, setNumber] = useState(1); //the number of generated images
-  const [size, setSize] = useState("256x256"); //what dimensions we want the image to be
+  const [improvementsInput, setImprovementsInput] = useState("");
+
+  const [userPrompt, setUserPrompt] = useState("");
+  const [number, setNumber] = useState(1);
+  const [size, setSize] = useState("256x256");
   const [imageUrl, setImageUrl] = useState("");
 
-  const updateUserPrompt = (newPrompt) => {
-    setUserPrompt(newPrompt);
+  const generateImage = async (newPrompt) => {
+    console.log(newPrompt, " is the prompt for the image");
+
+    const response = await openai.images.generate({
+      model: "dall-e-3",
+      // prompt: userPrompt,
+      prompt: newPrompt,
+      // prompt: "I work at a design agency called The Creative Solution (or TCS for short). Give me a clean black and white logo incorporating the word TCS",
+      n: 1,
+    })
+    const urlData = response.data[0].url;
+    console.log(response?.data, "DATATATATATATATA")
+    setImageUrl(urlData);
   }
+
+
+  const updateUserPrompt = async (newPrompt) => {
+    setUserPrompt(newPrompt);
+    console.log(newPrompt, " PROMPTPROMPTPROMPT")
+    await generateImage(newPrompt);
+  }
+
 
 
 
   return (
     <>
-      <div>
-        <textarea onChange={(e) => setUserPrompt(e.target.value)}></textarea>
-      </div>
-      {page === 0 && <Start onNext={handleNext}/>}
-      {page === 1 && <Upload onNext={handleNext}/>}
-      {page === 2 && <Improvements onNext={handleNext} updateUserPrompt={updateUserPrompt} handleSubmit={handleSubmit}/>}
-      {page === 3 && <Loading onNext={handleNext}/>}
-      {page > 3 && <Output redo={redo} response={response}/>}
+      {/* <Dalle/> */}
+      {page === 0 && <Start 
+        onNext={handleNext}/>}
+      {page === 1 && <Upload 
+        onNext={handleNext}/>}
+      {page === 2 && <Improvements 
+        onNext={handleNext} 
+        updateUserPrompt={updateUserPrompt} 
+        handleSubmit={handleSubmit} 
+      />}
+      {page === 3 && <Loading 
+        onNext={handleNext}/>}
+      {page > 3 && <Output 
+        redo={redo} 
+        response={response} 
+        imageUrl={imageUrl}/>}
     </>
-    // <>
-    // <div>
-    //   <div>
-    //     <form onSubmit={handleSubmit}>
-    //       <div>
-    //         <label htmlFor="inline-full-name">
-    //           Just say/ask anything :
-    //         </label>
-    //       </div>
-    //       <div>
-    //         <input type="text" value={prompt} onChange={(e) => setPrompt(e.target.value)}/>
-    //       </div>
-    //       <div>
-    //         <button type="submit">
-    //           Submit
-    //         </button>
-    //       </div>
-    //     </form>
-    //     <div>
-    //       <p>{response}</p>
-    //     </div>
-
-    //   </div>
-    // </div>
-    // </>
-
-    // <div>
-    //   dall-e
-    // </div>
   )
 }
 
