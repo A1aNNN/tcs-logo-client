@@ -77,6 +77,28 @@ function App() {
   const [size, setSize] = useState("256x256");
   const [imageUrl, setImageUrl] = useState("");
 
+  const parseImage = async () => {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4-vision-preview",
+      messages: [
+        {
+          role: "user",
+          content: [
+            { type: "text", text: "What's in this image?"},
+            {
+              type: "image_url",
+              image_url: {
+                "url": "https://upload.jpg", //some url here. this was used as a placeholder
+                "detail": "low"
+              },
+            },
+          ],
+        },
+      ],
+    });
+    console.log(response.choices[0]);
+  };
+
   const generateImage = async (newPrompt) => {
     console.log(newPrompt, " is the prompt for the image");
 
