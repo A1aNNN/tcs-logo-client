@@ -24,10 +24,17 @@ function App() {
 
   const [page, setPage] = useState(0);
 
-  const apiKey = process.env.GPT_API_KEY;
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const handleNext = () => {
     setPage(page + 1);
+    // setSelectedFile(file);
+  }
+
+  const handleNextUpload = (selectedFile) => {
+    setPage(page + 1);
+    setSelectedFile(selectedFile);
+    console.log('Selected file in App.js: HI ALAN THIS IS YOUR CONSOLE LOG ', selectedFile);
   }
 
   const redo = () => {
@@ -72,6 +79,7 @@ function App() {
     })
     const urlData = response.data[0].url;
     console.log(response?.data, "DATATATATATATATA")
+    console.log(selectedFile, ' THIS IS THE SELECTED FILE!!!')
     setImageUrl(urlData);
   }
 
@@ -90,8 +98,11 @@ function App() {
       {/* <Dalle/> */}
       {page === 0 && <Start 
         onNext={handleNext}/>}
+      {/* {page === 1 && <Upload 
+        onNext={handleNext}/>} */}
       {page === 1 && <Upload 
-        onNext={handleNext}/>}
+        // onNext={(selectedFile) => handleNext(selectedFile)}/>}
+        onNext={handleNextUpload}/>}
       {page === 2 && <Improvements 
         onNext={handleNext} 
         updateUserPrompt={updateUserPrompt} 
