@@ -6,6 +6,7 @@ import Upload from "./components/Upload";
 import Improvements from "./components/Improvements";
 import Loading from "./components/Loading";
 import Output from "./components/Output";
+import { Image } from "@chakra-ui/react";
 
 
 const OpenAI = require("openai")
@@ -35,6 +36,15 @@ function App() {
     setPage(page + 1);
     setSelectedFile(selectedFile);
     console.log('Selected file in App.js: HI ALAN THIS IS YOUR CONSOLE LOG ', selectedFile);
+  }
+
+  const renderImage = () => {
+    if (selectedFile) {
+      const imageUrl = URL.createObjectURL(selectedFile);
+      return <Image src={imageUrl}/>;
+    }
+
+    return null;
   }
 
   const redo = () => {
@@ -95,6 +105,7 @@ function App() {
 
   return (
     <>
+      {renderImage()}
       {/* <Dalle/> */}
       {page === 0 && <Start 
         onNext={handleNext}/>}
