@@ -8,6 +8,7 @@ const Upload = ({ onNext }) => {
     //For the input file
     const fileInputRef = useRef(null);
 
+    
 
     useEffect(() => {
         const element = document.querySelector('.text-title-upload');
