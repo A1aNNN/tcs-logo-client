@@ -8,6 +8,7 @@ const Upload = ({ onNext }) => {
     //For the input file
     const fileInputRef = useRef(null);
 
+
     useEffect(() => {
         const element = document.querySelector('.text-title-upload');
         element.classList.add('active');
@@ -50,6 +51,7 @@ const Upload = ({ onNext }) => {
             </Text>
             {/* <Button className='upload-button' onClick={onNext}> */}
             <Button className='upload-button' onClick={handleButtonClick}>
+            {/* <Button className='upload-button' onClick={() => onNext()}> */}
                 Upload here
             </Button>
             <input 
