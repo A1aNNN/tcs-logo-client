@@ -20,6 +20,12 @@ const Upload = ({ onNext }) => {
         // For eample, you can pass it to onNext(selectedFile)
     };
 
+    const handleButtonClick = () => {
+        //Trigger the file input when the button is clicked
+        fileInputRef.current.click();
+        onNext(); //moved onNext to here
+    }
+
   return (
     <Box className='app' minH='100vh' w='100%'>
         <Box className='logo-box'>
@@ -33,9 +39,17 @@ const Upload = ({ onNext }) => {
             <Text className='text-instruction'>
                 1. Upload your logo PNG
             </Text>
-            <Button className='upload-button' onClick={onNext}>
+            {/* <Button className='upload-button' onClick={onNext}> */}
+            <Button className='upload-button' onClick={handleButtonClick}>
                 Upload here
             </Button>
+            <input 
+                type='file'
+                accept='image/png'
+                style={{ display: 'none' }}
+                ref={fileInputRef}
+                onChange={handleFileChange}
+            />
         </Box>
 
         <Footer/>
