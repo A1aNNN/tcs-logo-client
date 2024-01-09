@@ -1,9 +1,25 @@
 import { Box, Button, Image, Text } from '@chakra-ui/react'
 import logo from './../images/TCSLogo.png'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Footer from './Footer'
 
 const Upload = ({ onNext }) => {
+
+    //For the input file
+    const fileInputRef = useRef(null);
+
+    useEffect(() => {
+        const element = document.querySelector('.text-title-upload');
+        element.classList.add('active');
+    }, []);
+
+    const handleFileChange = (e) => {
+        //Access the selected file using e.target.files[0]
+        const selectedFile = e.target.files[0];
+        //You can now use the selected file in your next function or state
+        // For eample, you can pass it to onNext(selectedFile)
+    };
+
   return (
     <Box className='app' minH='100vh' w='100%'>
         <Box className='logo-box'>
@@ -11,7 +27,7 @@ const Upload = ({ onNext }) => {
         </Box>
 
         <Box className='content' display='flex' flexDirection='column'>
-            <Text className='text-title'>
+            <Text className='text-title-upload'>
                 Logo Generator
             </Text>
             <Text className='text-instruction'>
