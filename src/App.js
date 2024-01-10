@@ -6,7 +6,7 @@ import Upload from "./components/Upload";
 import Improvements from "./components/Improvements";
 import Loading from "./components/Loading";
 import Output from "./components/Output";
-import { Image } from "@chakra-ui/react";
+import { Button, Image } from "@chakra-ui/react";
 
 
 const OpenAI = require("openai")
@@ -22,6 +22,8 @@ function App() {
 
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
+
+  // const [imageUrl, setImageUrl] = useState(null);
 
   const [page, setPage] = useState(0);
 
@@ -76,6 +78,8 @@ function App() {
   const [number, setNumber] = useState(1);
   const [size, setSize] = useState("256x256");
   const [imageUrl, setImageUrl] = useState("");
+  
+  const [visionOutput, setVisionOutput] = useState("");
 
   const parseImage = async () => {
     const response = await openai.chat.completions.create({
@@ -84,50 +88,72 @@ function App() {
         {
           role: "user",
           content: [
-            { type: "text", text: "What's in this image?"},
+            // { type: "text", text: "What's in this image?"},
+            // { type: "text", text: "This image is a logo of a company. I want you to look at this and provide text in high detail of what you see. Your text should be detailed enough so that the dall-e API can produce an improved logo that still resembles the original logo."},
+            {type: "text", text: "Describe the image in detail (colors, features, theme, style, etc). Provide enough detail that an artist would be able to redraw it. Use less than 50 words."},
             {
               type: "image_url",
               image_url: {
-                "url": "https://upload.jpg", //some url here. this was used as a placeholder
-                "detail": "low"
+                // "url": "https://upload.jpg", //some url here. this was used as a placeholder
+                // "url": "https://assets.wfcdn.com/im/11342258/compr-r85/3298/32983805/ground-mount-metal-monkey-bars.jpg",
+                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/1280px-A_small_cup_of_coffee.JPG",
+                "detail": "high"
               },
             },
           ],
         },
       ],
+      // max_tokens: 1500,
+      max_tokens: 100,
     });
-    console.log(response.choices[0]);
+    console.log(response.choices[0].message);
+
+    let descript_text = response.choices[0].message.content;
+    console.log(descript_text, " is the variable descript_text");
+
+    // setVisionOutput(response.choices[0].message.content);
+    setVisionOutput(descript_text);
+    console.log(visionOutput, " ALAN THIS is the output of vision within parseImage");
   };
 
   const generateImage = async (newPrompt) => {
     console.log(newPrompt, " is the prompt for the image");
+    console.log(visionOutput, " is the prompt taken from vision");
 
     const response = await openai.images.generate({
       model: "dall-e-3",
       // prompt: userPrompt,
-      prompt: newPrompt,
+      // prompt: newPrompt,
+      prompt: visionOutput,
       // prompt: "I work at a design agency called The Creative Solution (or TCS for short). Give me a clean black and white logo incorporating the word TCS",
       n: 1,
     })
+
+
     const urlData = response.data[0].url;
     console.log(response?.data, "DATATATATATATATA")
     console.log(selectedFile, ' THIS IS THE SELECTED FILE!!!')
-    setImageUrl(urlData);
+    // setImageUrl(urlData);
   }
 
 
   const updateUserPrompt = async (newPrompt) => {
     setUserPrompt(newPrompt);
     console.log(newPrompt, " PROMPTPROMPTPROMPT")
-    await generateImage(newPrompt);
+    // await generateImage(newPrompt);
+    await generateImage(visionOutput);
   }
 
-
+  const logVariable = () => {
+    console.log(visionOutput, " THIS IS A RESULT OF logVariable");
+  }
 
 
   return (
     <>
       {renderImage()}
+      <Button onClick={parseImage}>Testing vision</Button>
+      <Button onClick={logVariable}>Test what the variable visionOutput is</Button>
       {/* <Dalle/> */}
       {page === 0 && <Start 
         onNext={handleNext}/>}
