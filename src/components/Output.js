@@ -32,12 +32,15 @@ const Output = ({ redo, response, imageUrl }) => {
                 {response}
             </Text> */}
             <Text className='text-paragraph'>
+                Did you like the new logo?
+                {/* <br/>
+                <br/>
                 To receive a finalized logo, please fill 
-                out the Typeform to meet with the TCS team!
+                out the Typeform to meet with the TCS team! */}
             </Text>
-            <Button className='restart-button' onClick={redo}>
+            {/* <Button className='restart-button' onClick={redo}>
                 Restart
-            </Button>
+            </Button> */}
         </Box>
 
         <Footer/>
