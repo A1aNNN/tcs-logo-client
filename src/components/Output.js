@@ -3,7 +3,7 @@ import logo from './../images/TCSLogo.png'
 import { Box, Button, Image, Text } from '@chakra-ui/react'
 import Footer from './Footer'
 
-const Output = ({ redo, response, imageUrl }) => {
+const Output = ({ redo, response, imageUrl, onNext, onNext2 }) => {
   return (
     <Box className='app' minH='100vh' w='100%'>
         <Box className='logo-box'>
@@ -32,7 +32,7 @@ const Output = ({ redo, response, imageUrl }) => {
                 {response}
             </Text> */}
             <Text className='text-paragraph'>
-                Did you like the new logo?
+                Do you like the new logo?
                 {/* <br/>
                 <br/>
                 To receive a finalized logo, please fill 
@@ -41,6 +41,10 @@ const Output = ({ redo, response, imageUrl }) => {
             {/* <Button className='restart-button' onClick={redo}>
                 Restart
             </Button> */}
+            <Box>
+                <Button className='restart-button' marginRight="10px" onClick={onNext}>Yes</Button>
+                <Button className='restart-button' marginLeft="10px" onClick={onNext2}>No</Button>
+            </Box>
         </Box>
 
         <Footer/>
