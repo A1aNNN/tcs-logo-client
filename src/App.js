@@ -7,6 +7,8 @@ import Improvements from "./components/Improvements";
 import Loading from "./components/Loading";
 import Output from "./components/Output";
 import { Button, Image } from "@chakra-ui/react";
+import GoodOutcome from "./components/GoodOutcome";
+import BadOutcome from "./components/BadOutcome";
 
 
 const OpenAI = require("openai")
@@ -34,6 +36,10 @@ function App() {
     // setSelectedFile(file);
   }
 
+  const handleNext2 = () => {
+    setPage(page + 2);
+  }
+
   const handleNextUpload = (selectedFile) => {
     setPage(page + 1);
     setSelectedFile(selectedFile);
@@ -51,6 +57,14 @@ function App() {
 
   const redo = () => {
     setPage (page - 4);
+  }
+
+  const redo5 = () => {
+    setPage (page - 5);
+  }
+
+  const redo6 = () => {
+    setPage (page - 6);
   }
 
   const handleSubmit = (e) => {
@@ -123,8 +137,8 @@ function App() {
     const response = await openai.images.generate({
       model: "dall-e-3",
       // prompt: userPrompt,
-      // prompt: newPrompt,
-      prompt: visionOutput,
+      prompt: newPrompt,
+      // prompt: visionOutput,
       // prompt: "I work at a design agency called The Creative Solution (or TCS for short). Give me a clean black and white logo incorporating the word TCS",
       n: 1,
     })
@@ -133,15 +147,14 @@ function App() {
     const urlData = response.data[0].url;
     console.log(response?.data, "DATATATATATATATA")
     console.log(selectedFile, ' THIS IS THE SELECTED FILE!!!')
-    // setImageUrl(urlData);
+    setImageUrl(urlData);
   }
-
 
   const updateUserPrompt = async (newPrompt) => {
     setUserPrompt(newPrompt);
     console.log(newPrompt, " PROMPTPROMPTPROMPT")
-    // await generateImage(newPrompt);
-    await generateImage(visionOutput);
+    await generateImage(newPrompt); //COMMENTED THIS OUT
+    // generateImage(visionOutput);
   }
 
   const logVariable = () => {
@@ -151,9 +164,9 @@ function App() {
 
   return (
     <>
-      {renderImage()}
+      {/* {renderImage()}
       <Button onClick={parseImage}>Testing vision</Button>
-      <Button onClick={logVariable}>Test what the variable visionOutput is</Button>
+      <Button onClick={logVariable}>Test what the variable visionOutput is</Button> */}
       {/* <Dalle/> */}
       {page === 0 && <Start 
         onNext={handleNext}/>}
@@ -169,10 +182,20 @@ function App() {
       />}
       {page === 3 && <Loading 
         onNext={handleNext}/>}
-      {page > 3 && <Output 
+      {page === 4 && <Output 
         redo={redo} 
         response={response} 
-        imageUrl={imageUrl}/>}
+        imageUrl={imageUrl}
+        onNext={handleNext}
+        onNext2={handleNext2}
+      />}
+
+      {page === 5 && <GoodOutcome
+        redo5={redo5}
+      />}
+      {page === 6 && <BadOutcome
+        redo6={redo6}
+      />}
     </>
   )
 }
