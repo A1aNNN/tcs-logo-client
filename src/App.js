@@ -55,6 +55,8 @@ function App() {
     return null;
   }
 
+  
+  //For the restart buttons
   const redo = () => {
     setPage (page - 4);
   }
