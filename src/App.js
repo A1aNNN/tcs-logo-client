@@ -133,8 +133,8 @@ function App() {
   };
 
   const generateImage = async (newPrompt) => {
-    console.log(newPrompt, " is the prompt for the image");
-    console.log(visionOutput, " is the prompt taken from vision");
+    console.log(newPrompt, " is the prompt for the image.");
+    console.log(visionOutput, " is the prompt taken from vision.");
 
     const response = await openai.images.generate({
       model: "dall-e-3",
