@@ -129,7 +129,7 @@ function App() {
 
     // setVisionOutput(response.choices[0].message.content);
     setVisionOutput(descript_text);
-    console.log(visionOutput, " ALAN THIS is the output of vision within parseImage!");
+    console.log(visionOutput, " ALAN THIS is the output of vision within parseImage");
   };
 
   const generateImage = async (newPrompt) => {
