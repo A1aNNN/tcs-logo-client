@@ -147,7 +147,7 @@ function App() {
 
 
     const urlData = response.data[0].url;
-    console.log(response?.data, "DATATATATATATATA")
+    console.log(response?.data, "DATATATATATA")
     console.log(selectedFile, ' THIS IS THE SELECTED FILE!!!')
     setImageUrl(urlData);
   }
