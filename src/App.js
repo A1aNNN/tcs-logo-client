@@ -141,7 +141,7 @@ function App() {
       // prompt: userPrompt,
       prompt: newPrompt,
       // prompt: visionOutput,
-      // prompt: "I work at a design agency called The Creative Solution (or TCS for short). Give me a clean black and white logo incorporating the word TCS",
+      // prompt: "I work at a design agency called The Creative Solution (or TCS for short). Give me a clean black and white logo incorporating the word TCS.",
       n: 1,
     })
 
