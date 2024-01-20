@@ -16,7 +16,7 @@ const OpenAI = require("openai")
 const openai = new OpenAI({
   organization: process.env.REACT_APP_OPENAI_ORGANIZATION,
   apiKey: process.env.REACT_APP_OPENAI_KEY,
-  dangerouslyAllowBrowser: true,
+  dangerouslyAllowBrowser: true, //needs to do so to have key on client side
 });
 
 
