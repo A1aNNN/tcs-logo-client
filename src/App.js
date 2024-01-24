@@ -33,7 +33,7 @@ function App() {
 
   const handleNext = () => {
     setPage(page + 1);
-    // setSelectedFile(file);
+    // setSelectedFile(file); //extra function
   }
 
   const handleNext2 = () => {
