@@ -25,8 +25,6 @@ function App() {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
 
-  // const [imageUrl, setImageUrl] = useState(null);
-
   const [page, setPage] = useState(0);
 
   const [selectedFile, setSelectedFile] = useState(null);
