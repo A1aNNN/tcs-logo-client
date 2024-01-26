@@ -23,7 +23,7 @@ const Loading = ({ onNext }) => {
             <Text className='text-title'>
                 Logo Generator
             </Text>
-            <Text className='text-instruction'>
+            <Text className='text-instruction loading-text'>
                 Loading...
             </Text>
         </Box>
