@@ -183,6 +183,19 @@
 }
 
 
+/* LOADING PAGE */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.loading-text {
+    animation: pulse 2s infinite;
+}
+
+
+
 /* OUTPUT PAGE */
 .text-paragraph {
   color: #fff;
