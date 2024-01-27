@@ -1,6 +1,6 @@
 import "./App.css";
 import axios from 'axios';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Start from "./components/Start";
 import Upload from "./components/Upload";
 import Improvements from "./components/Improvements";
@@ -126,7 +126,7 @@ function App() {
     console.log(descript_text, " is the variable descript_text");
 
     // setVisionOutput(response.choices[0].message.content);
-    setVisionOutput(descript_text);
+    await setVisionOutput(descript_text);
     console.log(visionOutput, " ALAN THIS is the output of vision within parseImage");
   };
 
@@ -164,9 +164,9 @@ function App() {
 
   return (
     <>
-      {/* {renderImage()}
+      {renderImage()}
       <Button onClick={parseImage}>Testing vision</Button>
-      <Button onClick={logVariable}>Test what the variable visionOutput is</Button> */}
+      <Button onClick={logVariable}>Test what the variable visionOutput is</Button>
       {/* <Dalle/> */}
       {page === 0 && <Start 
         onNext={handleNext}/>}
