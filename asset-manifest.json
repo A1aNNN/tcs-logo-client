@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tcs-logo-client/static/css/main.2e977f3a.css",
+    "main.js": "/tcs-logo-client/static/js/main.9b23ff4d.js",
+    "static/js/787.bd813151.chunk.js": "/tcs-logo-client/static/js/787.bd813151.chunk.js",
+    "index.html": "/tcs-logo-client/index.html",
+    "main.2e977f3a.css.map": "/tcs-logo-client/static/css/main.2e977f3a.css.map",
+    "main.9b23ff4d.js.map": "/tcs-logo-client/static/js/main.9b23ff4d.js.map",
+    "787.bd813151.chunk.js.map": "/tcs-logo-client/static/js/787.bd813151.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2e977f3a.css",
+    "static/js/main.9b23ff4d.js"
+  ]
+}
