@@ -109,8 +109,8 @@ function App() {
               type: "image_url",
               image_url: {
                 // "url": "https://upload.jpg", //some url here. this was used as a placeholder
-                // "url": "https://assets.wfcdn.com/im/11342258/compr-r85/3298/32983805/ground-mount-metal-monkey-bars.jpg",
-                "url": "https://image.yachtcharterfleet.com/w933/h700/qh/ca/k8c7ad314/vessel/resource/894225.jpg",
+                "url": "https://assets.wfcdn.com/im/11342258/compr-r85/3298/32983805/ground-mount-metal-monkey-bars.jpg",
+                // "url": "https://image.yachtcharterfleet.com/w933/h700/qh/ca/k8c7ad314/vessel/resource/894225.jpg",
                 // "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/1280px-A_small_cup_of_coffee.JPG",
                 // "url": URL.createObjectURL(selectedFile),
                 "detail": "high"
@@ -142,10 +142,13 @@ function App() {
     console.log(newPrompt, " is the prompt for the image.");
     console.log(visionOutput, " is the prompt taken from vision.");
 
+    let dalleInput = "generate a cute, minimalistic favicon for a company who wants a logo that looks like this: " + newPrompt + "Their company name is 'Boat' so PLEASE MAKE SURE THE NAME IS CLEARLY VISIBLE. DO NOT FORGET TO MAKE THE NAME CLEARLY VISIBLE. MAKE SURE THE FAVICON DOESN'T LOOK TOO REALISTIC BECAUSE NORMALLY FAVICONS ARE USUALLY MADE BY PEOPLE! Please please please make sure the company name is visible and the favicon looks actually human-made or I will cry."
+
     const response = await openai.images.generate({
       model: "dall-e-3",
-      // prompt: userPrompt,
-      prompt: newPrompt,
+      // prompt: newPrompt,
+      prompt: dalleInput,
+
       // prompt: visionOutput,
       // prompt: "I work at a design agency called The Creative Solution (or TCS for short). Give me a clean black and white logo incorporating the word TCS.",
       n: 1,
