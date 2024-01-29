@@ -110,7 +110,9 @@ function App() {
               image_url: {
                 // "url": "https://upload.jpg", //some url here. this was used as a placeholder
                 // "url": "https://assets.wfcdn.com/im/11342258/compr-r85/3298/32983805/ground-mount-metal-monkey-bars.jpg",
-                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/1280px-A_small_cup_of_coffee.JPG",
+                "url": "https://image.yachtcharterfleet.com/w933/h700/qh/ca/k8c7ad314/vessel/resource/894225.jpg",
+                // "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/1280px-A_small_cup_of_coffee.JPG",
+                // "url": URL.createObjectURL(selectedFile),
                 "detail": "high"
               },
             },
@@ -126,9 +128,15 @@ function App() {
     console.log(descript_text, " is the variable descript_text");
 
     // setVisionOutput(response.choices[0].message.content);
-    await setVisionOutput(descript_text);
+    setVisionOutput(descript_text);
     console.log(visionOutput, " ALAN THIS is the output of vision within parseImage");
   };
+
+  useEffect(() => {
+    if (visionOutput) { // Check if `visionOutput` is not empty
+      generateImage(visionOutput); // Call `generateImage` with the updated `visionOutput`
+    }
+  }, [visionOutput]); // Dependency array, effect runs when `visionOutput` changes
 
   const generateImage = async (newPrompt) => {
     console.log(newPrompt, " is the prompt for the image.");
@@ -154,7 +162,7 @@ function App() {
     setUserPrompt(newPrompt);
     console.log(newPrompt, " PROMPTPROMPTPROMPT")
     await generateImage(newPrompt); //COMMENTED THIS OUT
-    // generateImage(visionOutput);
+    // await generateImage(visionOutput);
   }
 
   const logVariable = () => {
@@ -164,7 +172,7 @@ function App() {
 
   return (
     <>
-      {renderImage()}
+      {/* {renderImage()} */}
       <Button onClick={parseImage}>Testing vision</Button>
       <Button onClick={logVariable}>Test what the variable visionOutput is</Button>
       {/* <Dalle/> */}
@@ -179,6 +187,7 @@ function App() {
         onNext={handleNext} 
         updateUserPrompt={updateUserPrompt} 
         handleSubmit={handleSubmit} 
+        parseImage={parseImage}
       />}
       {page === 3 && <Loading 
         onNext={handleNext}/>}
