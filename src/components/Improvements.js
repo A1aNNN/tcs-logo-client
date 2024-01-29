@@ -3,15 +3,23 @@ import logo from './../images/TCSLogo.png'
 import React, { useEffect, useState } from 'react'
 import Footer from './Footer';
 
-const Improvements = ({ onNext, handleSubmit, updateUserPrompt }) => {
+const Improvements = ({ onNext, handleSubmit, updateUserPrompt, parseImage }) => {
 
     const [inputValue, setInputValue] = useState("");
 
-    const handleKeyPress = async (event) => {
+    // const handleKeyPress = async (event) => {
+    //     if (event.key === 'Enter') {
+    //         onNext();
+    //         handleSubmit();
+    //         await updateUserPrompt(inputValue);
+    //     }
+    // }
+
+    const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
             onNext();
             handleSubmit();
-            await updateUserPrompt(inputValue);
+            parseImage();
         }
     }
 
