@@ -24,7 +24,7 @@ const Start = ({ onNext }) => {
             </Text>
             <Text className='start-paragraph'>
                 Welcome to the TCS Logo Generator! Please attach a PNG image of 
-                your current logo, as well as a few points of improvement to receive 
+                your current logo, as well as the name of your business to receive 
                 an improved logo.
             </Text>
             <Text className='start-paragraph'>
