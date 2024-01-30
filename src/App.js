@@ -148,7 +148,8 @@ function App() {
     console.log(newPrompt, " is the prompt for the image.");
     console.log(visionOutput, " is the prompt taken from vision.");
 
-    let dalleInput = "generate a cute, minimalistic favicon for a company who wants a logo that looks like this: " + newPrompt + "Their company name is " + userPrompt + " so PLEASE MAKE SURE THE NAME IS CLEARLY VISIBLE. DO NOT FORGET TO MAKE THE NAME CLEARLY VISIBLE. MAKE SURE THE FAVICON DOESN'T LOOK TOO REALISTIC BECAUSE NORMALLY FAVICONS ARE USUALLY MADE BY PEOPLE! If you forget these two things I will fail my classes and cry so don't forget. DONT FORGET THE COMPANY NAME";
+    // let dalleInput = "generate a cute, minimalistic favicon for a company who wants a logo that looks like this: " + newPrompt + "Their company name is " + userPrompt + " so PLEASE MAKE SURE THE NAME IS CLEARLY VISIBLE. DO NOT FORGET TO MAKE THE NAME CLEARLY VISIBLE. MAKE SURE THE FAVICON DOESN'T LOOK TOO REALISTIC BECAUSE NORMALLY FAVICONS ARE USUALLY MADE BY PEOPLE! If you forget these two things I will fail my classes and cry so don't forget. DONT FORGET THE COMPANY NAME";
+    let dalleInput = "generate a cute, minimalistic, CIRCLE favicon for a company. HIGH PRIORITY that you include the company name underneath the circular favicon (make sure it's spelled correctly!). Here's some more information that you will need. Prompt of what the logo should look like: " + newPrompt + " Company name: " + userPrompt;
 
     console.log(dalleInput, " is the value for dalleInput");
 
