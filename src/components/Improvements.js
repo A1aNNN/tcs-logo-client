@@ -15,11 +15,13 @@ const Improvements = ({ onNext, handleSubmit, updateUserPrompt, parseImage }) =>
     //     }
     // }
 
-    const handleKeyPress = (event) => {
+    const handleKeyPress = async (event) => {
         if (event.key === 'Enter') {
             onNext();
             handleSubmit();
             parseImage();
+            await updateUserPrompt(inputValue);
+
         }
     }
 
@@ -40,11 +42,11 @@ const Improvements = ({ onNext, handleSubmit, updateUserPrompt, parseImage }) =>
                 Logo Generator
             </Text>
             <Text className='text-instruction'>
-                2. Add some improvement points
+                2. Please tell us the name of your business.
             </Text>
             <Input
                 className='improvements-input'
-                placeholder='Type your answer here'
+                placeholder='Your business name here'
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyPress}

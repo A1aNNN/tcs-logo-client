@@ -236,7 +236,7 @@ body, html {
 }
 
 .restart-button {
-  margin-top: 20px;
+  /* margin-top: 20px; */
 
   background-color: #fff;
   width: 160px;
