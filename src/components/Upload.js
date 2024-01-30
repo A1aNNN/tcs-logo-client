@@ -19,18 +19,35 @@ const Upload = ({ onNext }) => {
         return file && file.type === 'image/png';
     };
 
+    // const handleFileChange = (e) => {
+    //     //Access the selected file using e.target.files[0]
+    //     const selectedFile = e.target.files[0];
+    //     //You can now use the selected file in your next function or state
+    //     //For example, you can pass it to onNext(selectedFile)
+    //     if (isPNG(selectedFile)) {
+    //         onNext(selectedFile);
+    //     } else {
+    //         //Provide user feedback that only PNG files are allowed.
+    //         console.error('Please upload a PNG file.');
+    //     }
+    // };
+
     const handleFileChange = (e) => {
-        //Access the selected file using e.target.files[0]
         const selectedFile = e.target.files[0];
-        //You can now use the selected file in your next function or state
-        //For example, you can pass it to onNext(selectedFile)
         if (isPNG(selectedFile)) {
-            onNext(selectedFile);
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const base64String = reader.result;
+                // Pass the Base64 string to the next function instead of the file object
+                onNext(base64String);
+            };
+            reader.readAsDataURL(selectedFile);
         } else {
-            //Provide user feedback that only PNG files are allowed.
             console.error('Please upload a PNG file.');
         }
     };
+    
+
 
     const handleButtonClick = () => {
         //Trigger the file input when the button is clicked

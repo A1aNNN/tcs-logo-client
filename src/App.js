@@ -11,6 +11,7 @@ import GoodOutcome from "./components/GoodOutcome";
 import BadOutcome from "./components/BadOutcome";
 
 
+
 const OpenAI = require("openai")
 
 const openai = new OpenAI({
@@ -105,13 +106,16 @@ function App() {
             // { type: "text", text: "What's in this image?"},
             // { type: "text", text: "This image is a logo of a company. I want you to look at this and provide text in high detail of what you see. Your text should be detailed enough so that the dall-e API can produce an improved logo that still resembles the original logo."},
             // {type: "text", text: "Describe the image in detail (colors, features, theme, style, etc). Provide enough detail that an artist would be able to redraw it. Use less than 50 words."},
-            {type: "text", text: "Please describe this image in detail (colors, features, etc). I know you can't provide feedback on user-made designs so I'm NOT asking for feedback on the image. I just want you to describe this image so that someone who wouldn't be able to see the actual image could know what to draw. Ideally do this in 50 words or less."},
+            {
+              type: "text",
+              text: "Please describe this image in detail (colors, features, etc). I know you can't provide feedback on user-made designs so I'm NOT asking for feedback on the image. I just want you to describe this image so that someone who wouldn't be able to see the actual image could know what to draw. Ideally do this in 50 words or less."},
             {
               type: "image_url",
               image_url: {
+                "url": selectedFile,
                 // "url": "https://upload.jpg", //some url here. this was used as a placeholder
                 // "url": "https://assets.wfcdn.com/im/11342258/compr-r85/3298/32983805/ground-mount-metal-monkey-bars.jpg",
-                "url": "https://media.licdn.com/dms/image/D560BAQFuwiRiU7MK2Q/company-logo_200_200/0/1695625475103/thecreativesolution_ca_logo?e=2147483647&v=beta&t=GDT0tYbgbpsImH_nVEshQxKOmUAMr7Cr0MDZiRjmHTw",
+                // "url": "https://media.licdn.com/dms/image/D560BAQFuwiRiU7MK2Q/company-logo_200_200/0/1695625475103/thecreativesolution_ca_logo?e=2147483647&v=beta&t=GDT0tYbgbpsImH_nVEshQxKOmUAMr7Cr0MDZiRjmHTw",
                 // "url": "https://image.yachtcharterfleet.com/w933/h700/qh/ca/k8c7ad314/vessel/resource/894225.jpg",
                 // "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/1280px-A_small_cup_of_coffee.JPG",
                 // "url": URL.createObjectURL(selectedFile),
@@ -179,7 +183,7 @@ function App() {
     <>
       {/* FUNCTIONS TO TEST */}
       {/* {renderImage()} */}
-      <Button onClick={parseImage}>Testing vision</Button>
+      {/* <Button onClick={parseImage}>Testing vision</Button> */}
       {/* <Button onClick={logVariable}>Test what the variable visionOutput is</Button> */}
 
       {page === 0 && <Start 
