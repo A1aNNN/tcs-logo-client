@@ -103,6 +103,7 @@ function App() {
         {
           role: "user",
           content: [
+            //Different prompts
             // { type: "text", text: "What's in this image?"},
             // { type: "text", text: "This image is a logo of a company. I want you to look at this and provide text in high detail of what you see. Your text should be detailed enough so that the dall-e API can produce an improved logo that still resembles the original logo."},
             // {type: "text", text: "Describe the image in detail (colors, features, theme, style, etc). Provide enough detail that an artist would be able to redraw it. Use less than 50 words."},
