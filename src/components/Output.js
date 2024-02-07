@@ -18,10 +18,7 @@ const Output = ({ redo, response, imageUrl, onNext, onNext2 }) => {
                 {/* LOGOS OUTPUTTED HERE */}
                 <Box className='new-logo'>
                     <Image w="200px" src={imageUrl} alt='ai image'/>
-                    {/* <img w="256px" src={imageUrl} alt='2nd ai image'/> */}
                 </Box>
-                {/* <Box className='new-logo'></Box>
-                <Box className='new-logo'></Box> */}
             </Box>
 
             {/* FOR CHAT GPT RESPONSE */}
