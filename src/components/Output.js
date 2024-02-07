@@ -33,14 +33,7 @@ const Output = ({ redo, response, imageUrl, onNext, onNext2 }) => {
             </Text> */}
             <Text className='text-paragraph'>
                 Do you like the new logo?
-                {/* <br/>
-                <br/>
-                To receive a finalized logo, please fill 
-                out the Typeform to meet with the TCS team! */}
             </Text>
-            {/* <Button className='restart-button' onClick={redo}>
-                Restart
-            </Button> */}
             <Box>
                 <Button className='restart-button' marginRight="10px" onClick={onNext}>Yes</Button>
                 <Button className='restart-button' marginLeft="10px" onClick={onNext2}>No</Button>
