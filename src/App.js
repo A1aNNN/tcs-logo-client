@@ -1,6 +1,6 @@
 import "./App.css";
 import axios from 'axios';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Start from "./components/Start";
 import Upload from "./components/Upload";
 import Improvements from "./components/Improvements";
@@ -144,7 +144,7 @@ function App() {
   //   }
   // }, [generateImage, visionOutput]); // Dependency array, effect runs when `visionOutput` changes
 
-  const generateImage = async (newPrompt) => {
+  const generateImage = useCallback(async (newPrompt) => {
     console.log(newPrompt, " is the prompt for the image.");
     console.log(visionOutput, " is the prompt taken from vision.");
 
@@ -187,13 +187,13 @@ function App() {
     console.log(response?.data, "DATATATATATA")
     console.log(selectedFile, ' THIS IS THE SELECTED FILE!!!')
     setImageUrl(urlData);
-  }
+  }, [visionOutput, userPrompt, selectedFile])
 
   useEffect(() => {
     if (visionOutput) { // Check if `visionOutput` is not empty
       generateImage(visionOutput); // Call `generateImage` with the updated `visionOutput`
     }
-  }, [generateImage, visionOutput]); // Dependency array, effect runs when `visionOutput` changes
+  }, [visionOutput]); // Dependency array, effect runs when `visionOutput` changes
 
   const updateUserPrompt = async (newPrompt) => {
     setUserPrompt(newPrompt);
