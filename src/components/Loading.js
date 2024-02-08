@@ -2,6 +2,7 @@ import { Box, Image, Text } from '@chakra-ui/react'
 import logo from './../images/TCSLogo.png'
 import React, { useEffect } from 'react'
 import Footer from './Footer';
+import Logo from './Logo';
 
 const Loading = ({ onNext }) => {
 
@@ -15,21 +16,34 @@ const Loading = ({ onNext }) => {
 
   return (
     <Box className='app' minH='100vh' w='100%'>
-        <Box className='logo-box'>
-            <Image className='logo' src={logo}/>
-        </Box>
+        <Logo/>
 
-        <Box className='content' display='flex' flexDirection='column'>
-            <Text className='text-title'>
-                Logo Generator
-            </Text>
-            <Text className='text-instruction loading-text'>
+        <Box className='loading-container'>
+            <Text className='loading-maintext'>
                 Loading...
             </Text>
+            <Box className='spinner'></Box>
+            <Text className='loading-subtext'>
+                Did you know TCS was originally called "Art for Others"?
+            </Text>
         </Box>
-
-        <Footer/>
     </Box>
+    // <Box className='app' minH='100vh' w='100%'>
+    //     <Box className='logo-box'>
+    //         <Image className='logo' src={logo}/>
+    //     </Box>
+
+    //     <Box className='content' display='flex' flexDirection='column'>
+    //         <Text className='text-title'>
+    //             Logo Generator
+    //         </Text>
+    //         <Text className='text-instruction loading-text'>
+    //             Loading...
+    //         </Text>
+    //     </Box>
+
+    //     <Footer/>
+    // </Box>
   )
 }
 

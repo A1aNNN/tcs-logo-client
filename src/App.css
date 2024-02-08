@@ -279,6 +279,44 @@ body, html {
     animation: pulse 2s infinite;
 }
 
+.loading-container {
+  text-align: -webkit-center;
+  margin-top: 220px;
+}
+
+.loading-maintext {
+  font-family: Inter;
+  font-size: 40px;
+  color: #191919;
+  width: 330px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.loading-subtext {
+  font-family: Inter;
+  font-size: 18px;
+  color: #191919;
+  width: 330px;
+  margin-top: 30px;
+}
+
+.spinner {
+  height: 40px;
+  width: 40px;
+  border: 2px solid #191919;
+  border-color: #191919 transparent #191919 transparent;
+  border-radius: 50%;
+
+  animation: spin 2s ease infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+} 
+
 
 
 /* OUTPUT PAGE */
