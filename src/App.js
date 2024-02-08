@@ -6,7 +6,6 @@ import Upload from "./components/Upload";
 import Improvements from "./components/Improvements";
 import Loading from "./components/Loading";
 import Output from "./components/Output";
-import { Image } from "@chakra-ui/react";
 import GoodOutcome from "./components/GoodOutcome";
 import BadOutcome from "./components/BadOutcome";
 

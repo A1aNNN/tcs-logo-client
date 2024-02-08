@@ -10,7 +10,7 @@ const Loading = ({ onNext }) => {
         }, 20000);
 
         return () => clearTimeout(timeoutId);
-    }, []);
+    }, [onNext]);
 
   return (
     <Box className='app' minH='100vh' w='100%'>
