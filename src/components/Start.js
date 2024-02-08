@@ -22,11 +22,14 @@ const Start = ({ onNext }) => {
             {/* <Text className='text-title-start'>
                 Logo Generator
             </Text> */}
-            <Text className='text-title-start-logo'>
+            {/* <Text className='text-title-start-logo'>
                 Logo
             </Text>
             <Text className='text-title-start-generator'>
                 Generator.
+            </Text> */}
+            <Text className='text-title-start-generator'>
+                <span style={{color: '#191919'}}>Logo </span> Generator
             </Text>
             {/* <Text className='start-paragraph'>
                 Welcome to the TCS Logo Generator! Please attach a PNG image of 
