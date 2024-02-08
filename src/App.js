@@ -138,11 +138,11 @@ function App() {
     console.log(visionOutput, " ALAN THIS is the output of vision within parseImage");
   };
 
-  useEffect(() => {
-    if (visionOutput) { // Check if `visionOutput` is not empty
-      generateImage(visionOutput); // Call `generateImage` with the updated `visionOutput`
-    }
-  }, [visionOutput]); // Dependency array, effect runs when `visionOutput` changes
+  // useEffect(() => {
+  //   if (visionOutput) { // Check if `visionOutput` is not empty
+  //     generateImage(visionOutput); // Call `generateImage` with the updated `visionOutput`
+  //   }
+  // }, [generateImage, visionOutput]); // Dependency array, effect runs when `visionOutput` changes
 
   const generateImage = async (newPrompt) => {
     console.log(newPrompt, " is the prompt for the image.");
@@ -163,12 +163,37 @@ function App() {
       n: 1,
     })
 
+  // const generateImage = async (newPrompt) => {
+  //   console.log(newPrompt, " is the prompt for the image.");
+  //   console.log(visionOutput, " is the prompt taken from vision.");
+
+  //   // let dalleInput = "generate a cute, minimalistic favicon for a company who wants a logo that looks like this: " + newPrompt + "Their company name is " + userPrompt + " so PLEASE MAKE SURE THE NAME IS CLEARLY VISIBLE. DO NOT FORGET TO MAKE THE NAME CLEARLY VISIBLE. MAKE SURE THE FAVICON DOESN'T LOOK TOO REALISTIC BECAUSE NORMALLY FAVICONS ARE USUALLY MADE BY PEOPLE! If you forget these two things I will fail my classes and cry so don't forget. DONT FORGET THE COMPANY NAME";
+  //   let dalleInput = "generate a cute, minimalistic, CIRCLE favicon for a company. HIGH PRIORITY that you include the company name underneath the circular favicon (make sure it's spelled correctly!). Here's some more information that you will need. Prompt of what the logo should look like: " + newPrompt + " Company name: " + userPrompt + ". As a recap, here are all the rules that you need to follow. EVEN IF YOU BREAK ONE OF THEM, you ruin my reputation and will get me fired and I won't be able to provide meals for my family so PLEASE don't break any. 1) Logo should be simplistic and circular in shape. 2) Need to have the company name below the circular logo spelled correctly and following the correct capitalization. 3) Needs to follow the prompt provided about what the logo should look like.";
+
+  //   console.log(dalleInput, " is the value for dalleInput");
+
+  //   const response = await openai.images.generate({
+  //     model: "dall-e-3",
+  //     // prompt: newPrompt,
+  //     prompt: dalleInput,
+
+  //     // prompt: visionOutput,
+  //     // prompt: "I work at a design agency called The Creative Solution (or TCS for short). Give me a clean black and white logo incorporating the word TCS.",
+  //     n: 1,
+  //   })
+
 
     const urlData = response.data[0].url;
     console.log(response?.data, "DATATATATATA")
     console.log(selectedFile, ' THIS IS THE SELECTED FILE!!!')
     setImageUrl(urlData);
   }
+
+  useEffect(() => {
+    if (visionOutput) { // Check if `visionOutput` is not empty
+      generateImage(visionOutput); // Call `generateImage` with the updated `visionOutput`
+    }
+  }, [generateImage, visionOutput]); // Dependency array, effect runs when `visionOutput` changes
 
   const updateUserPrompt = async (newPrompt) => {
     setUserPrompt(newPrompt);
