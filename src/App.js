@@ -6,7 +6,7 @@ import Upload from "./components/Upload";
 import Improvements from "./components/Improvements";
 import Loading from "./components/Loading";
 import Output from "./components/Output";
-import { Button, Image } from "@chakra-ui/react";
+import { Image } from "@chakra-ui/react";
 import GoodOutcome from "./components/GoodOutcome";
 import BadOutcome from "./components/BadOutcome";
 
@@ -23,7 +23,7 @@ const openai = new OpenAI({
 
 function App() {
 
-  const [prompt, setPrompt] = useState("");
+  // const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
 
   const [page, setPage] = useState(0);
@@ -45,14 +45,14 @@ function App() {
     console.log('Selected file in App.js: HI ALAN THIS IS YOUR CONSOLE LOG ', selectedFile);
   }
 
-  const renderImage = () => {
-    if (selectedFile) {
-      const imageUrl = URL.createObjectURL(selectedFile);
-      return <Image src={imageUrl}/>;
-    }
+  // const renderImage = () => {
+  //   if (selectedFile) {
+  //     const imageUrl = URL.createObjectURL(selectedFile);
+  //     return <Image src={imageUrl}/>;
+  //   }
 
-    return null;
-  }
+  //   return null;
+  // }
 
   
   //For the restart buttons
@@ -87,11 +87,11 @@ function App() {
 
 
   // FOR DALLE
-  const [improvementsInput, setImprovementsInput] = useState("");
+  // const [improvementsInput, setImprovementsInput] = useState("");
 
   const [userPrompt, setUserPrompt] = useState("");
-  const [number, setNumber] = useState(1);
-  const [size, setSize] = useState("256x256");
+  // const [number, setNumber] = useState(1);
+  // const [size, setSize] = useState("256x256");
   const [imageUrl, setImageUrl] = useState("");
   
   const [visionOutput, setVisionOutput] = useState("");
@@ -176,9 +176,9 @@ function App() {
     console.log(newPrompt, " is the inputted business name.")
   }
 
-  const logVariable = () => {
-    console.log(visionOutput, " THIS IS A RESULT OF logVariable");
-  }
+  // const logVariable = () => {
+  //   console.log(visionOutput, " THIS IS A RESULT OF logVariable");
+  // }
 
 
   return (

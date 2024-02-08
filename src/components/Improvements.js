@@ -1,7 +1,5 @@
-import { Box, Image, Input, Text } from '@chakra-ui/react'
-import logo from './../images/TCSLogo.png'
-import React, { useEffect, useState } from 'react'
-import Footer from './Footer';
+import { Box, Input, Text } from '@chakra-ui/react'
+import React, { useState } from 'react'
 import Logo from './Logo';
 
 const Improvements = ({ onNext, handleSubmit, updateUserPrompt, parseImage }) => {

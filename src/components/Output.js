@@ -1,7 +1,5 @@
 import React from 'react'
-import logo from './../images/TCSLogo.png'
 import { Box, Button, Image, Text } from '@chakra-ui/react'
-import Footer from './Footer'
 import Logo from './Logo'
 
 const Output = ({ redo, response, imageUrl, onNext, onNext2 }) => {

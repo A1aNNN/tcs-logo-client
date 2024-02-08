@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react'
 import "./../App.css";
-import logo from './../images/TCSLogo.png'
-import lightmodelogo from './../images/tcs-lightmode-logo.svg'
-import { Box, Button, Image, Text } from '@chakra-ui/react';
-import Footer from './Footer';
+import { Box, Button, Text } from '@chakra-ui/react';
 import Logo from './Logo';
 
 const Start = ({ onNext }) => {

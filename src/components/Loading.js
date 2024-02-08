@@ -1,7 +1,5 @@
-import { Box, Image, Text } from '@chakra-ui/react'
-import logo from './../images/TCSLogo.png'
+import { Box, Text } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
-import Footer from './Footer';
 import Logo from './Logo';
 
 const Loading = ({ onNext }) => {

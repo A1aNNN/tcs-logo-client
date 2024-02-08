@@ -1,8 +1,6 @@
 import { Box, Button, Image, Text } from '@chakra-ui/react'
-import logo from './../images/TCSLogo.png'
 import uploadIcon from './../images/upload-icon.svg'
-import React, { useEffect, useRef } from 'react'
-import Footer from './Footer'
+import React, { useRef } from 'react'
 import Logo from './Logo'
 
 const Upload = ({ onNext }) => {

@@ -1,7 +1,5 @@
-import { Box, Button, Image, Text } from '@chakra-ui/react'
+import { Box, Button, Text } from '@chakra-ui/react'
 import React from 'react'
-import logo from './../images/TCSLogo.png'
-import Footer from './Footer'
 import Logo from './Logo'
 
 const BadOutcome = ({ redo6 }) => {
