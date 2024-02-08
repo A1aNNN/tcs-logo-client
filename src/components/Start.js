@@ -20,25 +20,35 @@ const Start = ({ onNext }) => {
         </Box>
 
         <Box className='content start-content' display='flex' flexDirection='column'>
-            <Text className='text-title-start'>
+            {/* <Text className='text-title-start'>
                 Logo Generator
+            </Text> */}
+            <Text className='text-title-start-logo'>
+                Logo
             </Text>
-            <Text className='start-paragraph'>
+            <Text className='text-title-start-generator'>
+                Generator.
+            </Text>
+            {/* <Text className='start-paragraph'>
                 Welcome to the TCS Logo Generator! Please attach a PNG image of 
                 your current logo, as well as the name of your business to receive 
                 an improved logo.
-            </Text>
-            <Text className='start-paragraph'>
+            </Text> */}
+            {/* <Text className='start-paragraph'>
                 Please keep in mind that the logo is tentative. To receive a 
                 finalized logo, please fill out the Typeform to meet 
                 with the TCS team!
+            </Text> */}
+            <Text className='start-paragraph'>
+                Upload your current logo and the name of your business to receive an improved, 
+                one-of-a-kind AI powered logo.
             </Text>
             <Button className='start-button' onClick={onNext}>
                 Get started here
             </Button>
         </Box>
 
-        <Footer/>
+        {/* <Footer/> */}
     </Box>
   )
 }
