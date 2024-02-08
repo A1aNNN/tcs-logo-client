@@ -19,19 +19,6 @@ const Upload = ({ onNext }) => {
         return file && file.type === 'image/png';
     };
 
-    // const handleFileChange = (e) => {
-    //     //Access the selected file using e.target.files[0]
-    //     const selectedFile = e.target.files[0];
-    //     //You can now use the selected file in your next function or state
-    //     //For example, you can pass it to onNext(selectedFile)
-    //     if (isPNG(selectedFile)) {
-    //         onNext(selectedFile);
-    //     } else {
-    //         //Provide user feedback that only PNG files are allowed.
-    //         console.error('Please upload a PNG file.');
-    //     }
-    // };
-
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
         if (isPNG(selectedFile)) {
