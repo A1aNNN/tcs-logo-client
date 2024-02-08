@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import "./../App.css";
 import logo from './../images/TCSLogo.png'
+import lightmodelogo from './../images/tcs-lightmode-logo.svg'
 import { Box, Button, Image, Text } from '@chakra-ui/react';
 import Footer from './Footer';
 
@@ -15,7 +16,7 @@ const Start = ({ onNext }) => {
   return (
     <Box className='app' minH='100vh' w='100%'>
         <Box className='logo-box'>
-            <Image className='logo' src={logo}/>
+            <Image className='logo' src={lightmodelogo}/>
         </Box>
 
         <Box className='content start-content' display='flex' flexDirection='column'>
