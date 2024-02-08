@@ -4,6 +4,7 @@ import logo from './../images/TCSLogo.png'
 import lightmodelogo from './../images/tcs-lightmode-logo.svg'
 import { Box, Button, Image, Text } from '@chakra-ui/react';
 import Footer from './Footer';
+import Logo from './Logo';
 
 const Start = ({ onNext }) => {
 
@@ -15,9 +16,7 @@ const Start = ({ onNext }) => {
 
   return (
     <Box className='app' minH='100vh' w='100%'>
-        <Box className='logo-box'>
-            <Image className='logo' src={lightmodelogo}/>
-        </Box>
+        <Logo/>
 
         <Box className='content start-content' display='flex' flexDirection='column'>
             {/* <Text className='text-title-start'>
