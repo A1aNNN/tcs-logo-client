@@ -26,12 +26,6 @@ const Improvements = ({ onNext, handleSubmit, updateUserPrompt, parseImage }) =>
         }
     }
 
-    // Example of useEffect
-    // useEffect(() => {
-    //     console.log(inputValue, ' is the changed input');
-    // }, [inputValue])
-
-
   return (
     <Box className='app' minH='100vh' w='100%'>
         {/* <Box className='logo-box'>
@@ -54,24 +48,6 @@ const Improvements = ({ onNext, handleSubmit, updateUserPrompt, parseImage }) =>
                 onKeyDown={handleKeyPress}
             />
         </Box>
-
-        {/* <Box className='content' display='flex' flexDirection='column'>
-            <Text className='text-title'>
-                Logo Generator
-            </Text>
-            <Text className='text-instruction'>
-                2. Please tell us the name of your business.
-            </Text>
-            <Input
-                className='improvements-input'
-                placeholder='Your business name here'
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyDown={handleKeyPress}
-            />
-        </Box> */}
-
-        {/* <Footer/> */}
     </Box>
   )
 }

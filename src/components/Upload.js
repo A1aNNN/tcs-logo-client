@@ -10,13 +10,6 @@ const Upload = ({ onNext }) => {
     //For the input file
     const fileInputRef = useRef(null);
 
-    
-
-    // useEffect(() => {
-    //     const element = document.querySelector('.text-title-upload');
-    //     element.classList.add('active');
-    // }, []);
-
     const isPNG = (file) => {
         return file && file.type === 'image/png';
     };
@@ -45,29 +38,7 @@ const Upload = ({ onNext }) => {
 
   return (
     <Box className='app' minH='100vh' w='100%'>
-        {/* <Box className='logo-box'>
-            <Image className='logo' src={logo}/>
-        </Box> */}
         <Logo/>
-
-        {/* <Box className='content' display='flex' flexDirection='column'>
-            <Text className='text-title-upload'>
-                Logo Generator
-            </Text>
-            <Text className='text-instruction'>
-                1. Upload your logo PNG
-            </Text>
-            <Button className='upload-button' onClick={handleButtonClick}>
-                Upload here
-            </Button>
-            <input 
-                type='file'
-                accept='image/png'
-                style={{ display: 'none' }}
-                ref={fileInputRef}
-                onChange={handleFileChange}
-            />
-        </Box> */}
 
         <Box className='content prompt-container' display='flex' flexDirection='column'>
             <Text className='text-step text-title-upload'>
@@ -88,8 +59,6 @@ const Upload = ({ onNext }) => {
                 onChange={handleFileChange}
             />
         </Box>
-
-        {/* <Footer/> */}
     </Box>
   )
 }
