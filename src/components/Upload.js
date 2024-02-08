@@ -1,7 +1,9 @@
 import { Box, Button, Image, Text } from '@chakra-ui/react'
 import logo from './../images/TCSLogo.png'
+import uploadIcon from './../images/upload-icon.svg'
 import React, { useEffect, useRef } from 'react'
 import Footer from './Footer'
+import Logo from './Logo'
 
 const Upload = ({ onNext }) => {
 
@@ -10,10 +12,10 @@ const Upload = ({ onNext }) => {
 
     
 
-    useEffect(() => {
-        const element = document.querySelector('.text-title-upload');
-        element.classList.add('active');
-    }, []);
+    // useEffect(() => {
+    //     const element = document.querySelector('.text-title-upload');
+    //     element.classList.add('active');
+    // }, []);
 
     const isPNG = (file) => {
         return file && file.type === 'image/png';
@@ -43,20 +45,39 @@ const Upload = ({ onNext }) => {
 
   return (
     <Box className='app' minH='100vh' w='100%'>
-        <Box className='logo-box'>
+        {/* <Box className='logo-box'>
             <Image className='logo' src={logo}/>
-        </Box>
+        </Box> */}
+        <Logo/>
 
-        <Box className='content' display='flex' flexDirection='column'>
+        {/* <Box className='content' display='flex' flexDirection='column'>
             <Text className='text-title-upload'>
                 Logo Generator
             </Text>
             <Text className='text-instruction'>
                 1. Upload your logo PNG
             </Text>
-            {/* <Button className='upload-button' onClick={onNext}> */}
             <Button className='upload-button' onClick={handleButtonClick}>
-            {/* <Button className='upload-button' onClick={() => onNext()}> */}
+                Upload here
+            </Button>
+            <input 
+                type='file'
+                accept='image/png'
+                style={{ display: 'none' }}
+                ref={fileInputRef}
+                onChange={handleFileChange}
+            />
+        </Box> */}
+
+        <Box className='content prompt-container' display='flex' flexDirection='column'>
+            <Text className='text-step text-title-upload'>
+                Step 1
+            </Text>
+            <Text className='text-instruction-black'>
+                <span style={{ color: '#969696'}}>Upload</span> your logo PNG.
+            </Text>
+            <Button className='upload-button' onClick={handleButtonClick}>
+                <Image src={uploadIcon} paddingRight='8px'/>
                 Upload here
             </Button>
             <input 
@@ -68,7 +89,7 @@ const Upload = ({ onNext }) => {
             />
         </Box>
 
-        <Footer/>
+        {/* <Footer/> */}
     </Box>
   )
 }
