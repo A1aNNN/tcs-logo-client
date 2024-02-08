@@ -82,6 +82,23 @@ body, html {
   line-height: 73px;
 }
 
+@media (max-width: 450px) {
+  .text-title-start-generator {
+    font-size: 60px;
+    width: 80%;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 61px;
+  }
+}
+
+@media (max-width: 350px) {
+  .text-title-start-generator {
+    font-size: 45px;
+    line-height: 55px;
+  }
+}
+
 /* .text-title-upload {
   color: #fff;
   font-family: Inter;
