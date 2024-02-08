@@ -418,6 +418,7 @@ body, html {
 /* OUTCOME PAGE */
 .outcome-text-small {
   margin-top: 180px;
+  width: 230px;
 }
 
 .outcome-text-md {
@@ -436,6 +437,7 @@ body, html {
     padding-left: 25px;
     padding-right: 25px;
     width: 75%;
+    line-height: 38px;
   }
 
   .outcome-text-md {
