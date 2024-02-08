@@ -193,7 +193,7 @@ function App() {
     if (visionOutput) { // Check if `visionOutput` is not empty
       generateImage(visionOutput); // Call `generateImage` with the updated `visionOutput`
     }
-  }, [visionOutput]); // Dependency array, effect runs when `visionOutput` changes
+  }, [visionOutput, generateImage]); // Dependency array, effect runs when `visionOutput` changes
 
   const updateUserPrompt = async (newPrompt) => {
     setUserPrompt(newPrompt);
