@@ -404,6 +404,9 @@ body, html {
 @media (max-width: 400px) {
   .outcome-text-big {
     font-size: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 75%;
   }
 
   .outcome-text-md {
