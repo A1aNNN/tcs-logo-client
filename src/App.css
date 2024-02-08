@@ -235,10 +235,20 @@ body, html {
   width: 270px;
   margin-top: 30px;
   margin-bottom: 0px;
+  font-weight: 500;
+  line-height: 42px;
 }
 
 .text-instruction-box {
   width: 270px;
+}
+
+@media (max-width: 450px) {
+  .text-instruction-box {
+    width: 80%;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
 }
 
 .upload-button {
