@@ -372,7 +372,7 @@ body, html {
 
   color: #F5F5F5;
   font-family: Inter;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   transition: background-color 0.3s, color 0.3s;
 
@@ -385,6 +385,33 @@ body, html {
   border: 1.3px solid #191919;
 }
 
+
+/* OUTCOME PAGE */
+.outcome-text-small {
+  margin-top: 180px;
+}
+
+.outcome-text-md {
+  width: 350px;
+  margin-bottom: 40px;
+}
+
+.outcome-text-big {
+  width: 350px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 400px) {
+  .outcome-text-big {
+    font-size: 30px;
+  }
+
+  .outcome-text-md {
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 70%;
+  }
+}
 
 /* FOOTER */
 .footer-container {
