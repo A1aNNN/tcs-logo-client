@@ -20,7 +20,7 @@ const GoodOutcome = ({ redo5 }) => {
             </Text>
 
 
-            <Button className='restart-button' onClick={() => window.open('https://form.typeform.com/to/ZaKKuFnM', '_blank')}>Let's talk</Button>
+            <Button className='restart-button' onClick={() => window.open('https://form.typeform.com/to/yhnJoMX8', '_blank')}>Let's talk</Button>
         </Box>
     </Box>
   )
