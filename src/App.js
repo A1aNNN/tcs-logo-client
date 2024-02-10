@@ -108,7 +108,9 @@ function App() {
             // {type: "text", text: "Describe the image in detail (colors, features, theme, style, etc). Provide enough detail that an artist would be able to redraw it. Use less than 50 words."},
             {
               type: "text",
-              text: "Please describe this image in detail (colors, features, etc). I know you can't provide feedback on user-made designs so I'm NOT asking for feedback on the image. I just want you to describe this image so that someone who wouldn't be able to see the actual image could know what to draw. Ideally do this in 50 words or less."},
+              // text: "Please describe this image in detail (colors, features, etc). I know you can't provide feedback on user-made designs so I'm NOT asking for feedback on the image. I just want you to describe this image so that someone who wouldn't be able to see the actual image could know what to draw. Ideally do this in 50 words or less."
+              text: "Please describe the key elements of this image in detail, but in a simplistic manner (colors, features, etc). I know you can't provide feedback on user-made designs so I'm NOT asking for feedback on the image. I just want you to describe the key details of this image in a simplistic terms so that someone who wouldn't be able to see the actual image would know what to draw. Do this in 50 words or less."
+            },
             {
               type: "image_url",
               image_url: {
@@ -149,7 +151,9 @@ function App() {
     console.log(visionOutput, " is the prompt taken from vision.");
 
     // let dalleInput = "generate a cute, minimalistic favicon for a company who wants a logo that looks like this: " + newPrompt + "Their company name is " + userPrompt + " so PLEASE MAKE SURE THE NAME IS CLEARLY VISIBLE. DO NOT FORGET TO MAKE THE NAME CLEARLY VISIBLE. MAKE SURE THE FAVICON DOESN'T LOOK TOO REALISTIC BECAUSE NORMALLY FAVICONS ARE USUALLY MADE BY PEOPLE! If you forget these two things I will fail my classes and cry so don't forget. DONT FORGET THE COMPANY NAME";
-    let dalleInput = "generate a cute, minimalistic, CIRCLE favicon for a company. HIGH PRIORITY that you include the company name underneath the circular favicon (make sure it's spelled correctly!). Here's some more information that you will need. Prompt of what the logo should look like: " + newPrompt + " Company name: " + userPrompt + ". As a recap, here are all the rules that you need to follow. EVEN IF YOU BREAK ONE OF THEM, you ruin my reputation and will get me fired and I won't be able to provide meals for my family so PLEASE don't break any. 1) Logo should be simplistic and circular in shape. 2) Need to have the company name below the circular logo spelled correctly and following the correct capitalization. 3) Needs to follow the prompt provided about what the logo should look like.";
+    // let dalleInput = "generate a cute, minimalistic, CIRCLE favicon for a company. HIGH PRIORITY that you include the company name underneath the circular favicon (make sure it's spelled correctly!). Here's some more information that you will need. Prompt of what the logo should look like: " + newPrompt + " Company name: " + userPrompt + ". As a recap, here are all the rules that you need to follow. EVEN IF YOU BREAK ONE OF THEM, you ruin my reputation and will get me fired and I won't be able to provide meals for my family so PLEASE don't break any. 1) Logo should be simplistic and circular in shape. 2) Need to have the company name below the circular logo spelled correctly and following the correct capitalization. 3) Needs to follow the prompt provided about what the logo should look like.";
+    // let dalleInput = newPrompt + userPrompt;
+    let dalleInput = "Generate a simple, circular, vector logo for a business. It should be done with abstract expressionalism and contain content: " + newPrompt + ". The business name is " + userPrompt +  ". Please print the business name of underneath the circular logo and spell it correctly.";
 
     console.log(dalleInput, " is the value for dalleInput");
 
