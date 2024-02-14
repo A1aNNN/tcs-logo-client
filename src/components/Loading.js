@@ -24,6 +24,9 @@ const Loading = ({ onNext }) => {
             <Text className='loading-subtext'>
                 Did you know TCS was originally called "Art for Others"?
             </Text>
+            {/* <Text>
+                Did you know half our team's name start with letter "A"?
+            </Text> */}
         </Box>
     </Box>
   )
