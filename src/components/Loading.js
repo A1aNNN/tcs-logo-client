@@ -4,6 +4,13 @@ import Logo from './Logo';
 
 const Loading = ({ onNext }) => {
 
+    const Text = [
+        {blurb: "Did you know TCS was originally called 'Art for Others'?"},
+        {blurb: "TCS has an NFT collection called 'Bangoncebu' which it used to raise money for charity."},
+        {blurb: "Did you know half our team's name start with letter 'A'?"},
+        {blurb: "Thanks for stopping by!"},
+    ]
+
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             onNext();
