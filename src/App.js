@@ -41,7 +41,7 @@ function App() {
   const handleNextUpload = (selectedFile) => {
     setPage(page + 1);
     setSelectedFile(selectedFile);
-    console.log('Selected file in App.js: HI ALAN THIS IS YOUR CONSOLE LOG ', selectedFile);
+    // console.log('Selected file in App.js: HI ALAN THIS IS YOUR CONSOLE LOG ', selectedFile);
   }
 
   // const renderImage = () => {
@@ -130,26 +130,26 @@ function App() {
       // max_tokens: 1500,
       max_tokens: 100,
     });
-    console.log(response.choices[0].message);
+    // console.log(response.choices[0].message);
 
     let descript_text = response.choices[0].message.content;
-    console.log(descript_text, " is the variable descript_text");
+    // console.log(descript_text, " is the variable descript_text");
 
     // setVisionOutput(response.choices[0].message.content);
     setVisionOutput(descript_text);
-    console.log(visionOutput, " ALAN THIS is the output of vision within parseImage");
+    // console.log(visionOutput, " ALAN THIS is the output of vision within parseImage");
   };
 
   const generateImage = useCallback(async (newPrompt) => {
-    console.log(newPrompt, " is the prompt for the image.");
-    console.log(visionOutput, " is the prompt taken from vision.");
+    // console.log(newPrompt, " is the prompt for the image.");
+    // console.log(visionOutput, " is the prompt taken from vision.");
 
     // let dalleInput = "generate a cute, minimalistic favicon for a company who wants a logo that looks like this: " + newPrompt + "Their company name is " + userPrompt + " so PLEASE MAKE SURE THE NAME IS CLEARLY VISIBLE. DO NOT FORGET TO MAKE THE NAME CLEARLY VISIBLE. MAKE SURE THE FAVICON DOESN'T LOOK TOO REALISTIC BECAUSE NORMALLY FAVICONS ARE USUALLY MADE BY PEOPLE! If you forget these two things I will fail my classes and cry so don't forget. DONT FORGET THE COMPANY NAME";
     let dalleInput = "generate a cute, minimalistic, CIRCLE favicon for a company. HIGH PRIORITY that you include the company name underneath the circular favicon (make sure it's spelled correctly!). Here's some more information that you will need. Prompt of what the logo should look like: " + newPrompt + " Company name: " + userPrompt + ". As a recap, here are all the rules that you need to follow. EVEN IF YOU BREAK ONE OF THEM, you ruin my reputation and will get me fired and I won't be able to provide meals for my family so PLEASE don't break any. 1) Logo should be simplistic and circular in shape. 2) Need to have the company name below the circular logo spelled correctly and following the correct capitalization. 3) Needs to follow the prompt provided about what the logo should look like.";
     // let dalleInput = newPrompt + userPrompt;
     // let dalleInput = "Generate a simple, circular, vector logo for a business. It should be done with abstract expressionalism and contain content: " + newPrompt + ". The business name is " + userPrompt +  ". Please print the business name of underneath the circular logo and spell it correctly.";
 
-    console.log(dalleInput, " is the value for dalleInput");
+    // console.log(dalleInput, " is the value for dalleInput");
 
     const response = await openai.images.generate({
       model: "dall-e-3",
@@ -164,8 +164,8 @@ function App() {
 
 
     const urlData = response.data[0].url;
-    console.log(response?.data, "DATATATATATA")
-    console.log(selectedFile, ' THIS IS THE SELECTED FILE!!!')
+    // console.log(response?.data, "DATATATATATA")
+    // console.log(selectedFile, ' THIS IS THE SELECTED FILE!!!')
     setImageUrl(urlData);
   }, [visionOutput, userPrompt, selectedFile])
 
@@ -177,7 +177,7 @@ function App() {
 
   const updateUserPrompt = async (newPrompt) => {
     setUserPrompt(newPrompt);
-    console.log(newPrompt, " is the inputted business name.")
+    // console.log(newPrompt, " is the inputted business name.")
   }
 
   // const logVariable = () => {
