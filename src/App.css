@@ -103,34 +103,6 @@ body, html {
   }
 }
 
-/* .text-title-upload {
-  color: #fff;
-  font-family: Inter;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-
-  margin-top: 100px;
-  animation: moveUp 0.8s ease-in-out;
-} */
-
-/* .text-title-upload.active {
-  margin-top: 40px;
-  padding-bottom: 60px;
-} */
-
-/* @keyframes moveUp {
-  from {
-    margin-top: 100px;
-    padding-bottom: 0px;
-  }
-  to {
-    margin-top: 40px;
-    padding-bottom: 60px;
-  }
-} */
-
 
 /* START PAGE */
 .start-content {
