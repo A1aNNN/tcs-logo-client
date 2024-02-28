@@ -2,7 +2,7 @@ import { Box, Button, Text } from '@chakra-ui/react'
 import React from 'react'
 import Logo from './Logo'
 
-const GoodOutcome = ({ redo5 }) => {
+const GoodOutcome = () => {
   return (
     <Box className='app' minH='100vh' w='100%'>
         <Logo/>
