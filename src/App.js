@@ -22,7 +22,6 @@ const openai = new OpenAI({
 
 function App() {
 
-  // const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
 
   const [page, setPage] = useState(0);
@@ -56,22 +55,22 @@ function App() {
     setPage (page - 6);
   }
 
-  const handleSubmit = (e) => {
-    // e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   // e.preventDefault();
 
-    axios
-      // Send a post request to specific port and url
-      .post("http://localhost:8080/generate-text", { prompt })
+  //   axios
+  //     // Send a post request to specific port and url
+  //     .post("http://localhost:8080/generate-text", { prompt })
       
-      .then((res) => {
-        console.log('Axios Response:', res);
-        setResponse(res?.data?.content);
-      })
+  //     .then((res) => {
+  //       console.log('Axios Response:', res);
+  //       setResponse(res?.data?.content);
+  //     })
       
-      .catch((err) => {
-        console.error('Axios Error:', err);
-      });
-  };
+  //     .catch((err) => {
+  //       console.error('Axios Error:', err);
+  //     });
+  // };
 
 
   const [userPrompt, setUserPrompt] = useState("");
@@ -142,7 +141,7 @@ function App() {
       {page === 2 && <Improvements 
         onNext={handleNext} 
         updateUserPrompt={updateUserPrompt} 
-        handleSubmit={handleSubmit} 
+        // handleSubmit={handleSubmit} 
         parseImage={parseImage}
       />}
       {page === 3 && <Loading 

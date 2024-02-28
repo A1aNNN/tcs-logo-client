@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, Image, Text } from '@chakra-ui/react'
 import Logo from './Logo'
 
-const Output = ({ redo, response, imageUrl, onNext, onNext2 }) => {
+const Output = ({ imageUrl, onNext, onNext2 }) => {
   return (
     <Box className='app' minH='100vh' w='100%'>
         <Logo/>

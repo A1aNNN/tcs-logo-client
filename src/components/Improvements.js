@@ -17,7 +17,7 @@ const Improvements = ({ onNext, handleSubmit, updateUserPrompt, parseImage }) =>
     const handleKeyPress = async (event) => {
         if (event.key === 'Enter') {
             onNext();
-            handleSubmit();
+            // handleSubmit();
             parseImage();
             await updateUserPrompt(inputValue);
 
