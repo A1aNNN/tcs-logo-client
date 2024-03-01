@@ -2,33 +2,20 @@ import { Box, Input, Text } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import Logo from './Logo';
 
-const Improvements = ({ onNext, handleSubmit, updateUserPrompt, parseImage }) => {
+const Improvements = ({ onNext, updateUserPrompt, parseImage }) => {
 
     const [inputValue, setInputValue] = useState("");
 
-    // const handleKeyPress = async (event) => {
-    //     if (event.key === 'Enter') {
-    //         onNext();
-    //         handleSubmit();
-    //         await updateUserPrompt(inputValue);
-    //     }
-    // }
-
-    const handleKeyPress = async (event) => {
+    const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
             onNext();
-            // handleSubmit();
             parseImage();
-            await updateUserPrompt(inputValue);
-
+            updateUserPrompt(inputValue);
         }
     }
 
   return (
     <Box className='app' minH='100vh' w='100%'>
-        {/* <Box className='logo-box'>
-            <Image className='logo' src={logo}/>
-        </Box> */}
         <Logo/>
 
         <Box className='content prompt-container' display='flex' flexDirection='column'>
