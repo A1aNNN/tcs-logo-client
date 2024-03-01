@@ -19,10 +19,6 @@ const Start = ({ onNext }) => {
             <Text className='text-title-start-generator'>
                 <span style={{color: '#191919'}}>Logo </span> Generator
             </Text>
-            {/* <Text className='start-paragraph'>
-                Upload your current logo and the name of your business to receive an improved, 
-                one-of-a-kind AI powered logo.
-            </Text> */}
             <Text className='start-paragraph'>
                 Upgrade your current logo and receive a one-of-a-kind AI powered logo in less than a minute!
             </Text>
