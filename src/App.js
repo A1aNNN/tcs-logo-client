@@ -42,7 +42,6 @@ function App() {
   }
 
   
-  //For the restart buttons
   const redo = () => {
     setPage (page - 4);
   }
