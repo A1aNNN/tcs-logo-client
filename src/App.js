@@ -1,5 +1,5 @@
 import "./App.css";
-import axios from 'axios';
+// import axios from 'axios';
 import { useState, useEffect, useCallback } from "react";
 import Start from "./components/Start";
 import Upload from "./components/Upload";
@@ -8,6 +8,9 @@ import Loading from "./components/Loading";
 import Output from "./components/Output";
 import GoodOutcome from "./components/GoodOutcome";
 import BadOutcome from "./components/BadOutcome";
+import { addDoc, collection } from '@firebase/firestore'
+import { firestore } from "./firebase";
+
 
 
 
@@ -27,6 +30,22 @@ function App() {
   const [page, setPage] = useState(0);
 
   const [selectedFile, setSelectedFile] = useState(null);
+
+  //firebase
+  const ref = collection(firestore, "generated-logos");
+  const handleSubmit = () => {
+
+    let data = {
+      company: userPrompt,
+      image: imageUrl,
+    }
+
+    try {
+      addDoc(ref, data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   const handleNext = () => {
     setPage(page + 1);
@@ -126,6 +145,12 @@ function App() {
       generateImage(visionOutput); // Call `generateImage` with the updated `visionOutput`
     }
   }, [visionOutput, generateImage]);
+
+  useEffect(() => {
+    if (imageUrl) {
+      handleSubmit();
+    }
+  }, [imageUrl]);
 
   const updateUserPrompt = async (newPrompt) => {
     setUserPrompt(newPrompt);
