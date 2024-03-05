@@ -25,7 +25,7 @@ const openai = new OpenAI({
 
 function App() {
 
-  const [response, setResponse] = useState("");
+  // const [response, setResponse] = useState("");
 
   const [page, setPage] = useState(0);
 
@@ -173,7 +173,7 @@ function App() {
         onNext={handleNext}/>}
       {page === 4 && <Output 
         redo={redo} 
-        response={response} 
+        // response={response} 
         imageUrl={imageUrl}
         onNext={handleNext}
         onNext2={handleNext2}
