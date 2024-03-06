@@ -41,6 +41,9 @@ function App() {
     }
 
     try {
+
+      console.log(userPrompt, " is the added company name");
+      console.log(imageUrl, " is the added image url");
       addDoc(ref, data);
     } catch (err) {
       console.log(err);
