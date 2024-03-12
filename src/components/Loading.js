@@ -32,7 +32,7 @@ const Loading = ({ onNext }) => {
             }, 1000); // Time for changing between classes
         };
 
-        const intervalId = setInterval(changeBlurb, 4500); // Time that each blurb appears for
+        const intervalId = setInterval(changeBlurb, 5000); // Time that each blurb appears for
 
         return () => clearInterval(intervalId);
     }, []);
