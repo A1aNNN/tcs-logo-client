@@ -18,7 +18,7 @@ const Loading = ({ onNext }) => {
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             onNext();
-        }, 20000000);
+        }, 20000);
 
         return () => clearTimeout(timeoutId);
     }, [onNext]);
