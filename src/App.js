@@ -1,5 +1,5 @@
 import "./App.css";
-// import axios from 'axios';
+import axios from 'axios';
 import { useState, useEffect, useCallback } from "react";
 import Start from "./components/Start";
 import Upload from "./components/Upload";
@@ -9,7 +9,9 @@ import Output from "./components/Output";
 import GoodOutcome from "./components/GoodOutcome";
 import BadOutcome from "./components/BadOutcome";
 import { addDoc, collection } from '@firebase/firestore'
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "@firebase/storage";
 import { firestore } from "./firebase";
+import { storage } from "./firebase";
 
 
 
@@ -25,29 +27,54 @@ const openai = new OpenAI({
 
 function App() {
 
-  // const [response, setResponse] = useState("");
-
   const [page, setPage] = useState(0);
 
   const [selectedFile, setSelectedFile] = useState(null);
 
   //firebase
-  const ref = collection(firestore, "generated-logos");
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
 
-    let data = {
-      company: userPrompt,
-      image: imageUrl,
-    }
+    if (!imageUrl) return;
 
     try {
+      console.log("handleSubmit is starting")
+      const response = await axios.get(imageUrl, {responseType: 'blob'});
+      const imageBlob = response.data;
+
+      const imageRef = storageRef(storage, `images/${new Date().getTime()}`);
+      const uploadResult = await uploadBytes(imageRef, imageBlob);
+
+      const permanentImageUrl = await getDownloadURL(uploadResult.ref)
+
+      const data = {
+        company: userPrompt,
+        image: permanentImageUrl,
+      };
+
+      await addDoc(collection(firestore, "generated-logos"), data);
+
       console.log(userPrompt, " is the added company name");
-      console.log(imageUrl, " is the added image url");
-      addDoc(ref, data);
-    } catch (err) {
+      console.log(permanentImageUrl, " is the added image url");
+    } catch(err) {
       console.log(err);
     }
   }
+  // const ref = collection(firestore, "generated-logos");
+  // const handleSubmit = () => {
+
+  //   let data = {
+  //     company: userPrompt,
+  //     image: imageUrl,
+  //   }
+
+  //   try {
+  //     console.log(userPrompt, " is the added company name");
+  //     console.log(imageUrl, " is the added image url");
+  //     addDoc(ref, data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
 
   const handleNext = () => {
     setPage(page + 1);
@@ -138,6 +165,7 @@ function App() {
       n: 1,
     })
 
+    console.log(response.data[0], " is the response from DALLE");
     const urlData = response.data[0].url;
     setImageUrl(urlData);
   }, [visionOutput, userPrompt, selectedFile])

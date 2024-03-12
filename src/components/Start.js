@@ -17,7 +17,7 @@ const Start = ({ onNext }) => {
 
         <Box className='content start-content' display='flex' flexDirection='column'>
             <Text className='text-title-start-generator'>
-                <span style={{color: '#191919'}}>Logo </span> Generator
+                <span style={{color: '#191919'}}>FIREBASE Logo </span> Generator
             </Text>
             <Text className='start-paragraph'>
                 Upgrade your current logo and receive a one-of-a-kind AI powered logo in less than a minute!
