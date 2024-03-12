@@ -331,6 +331,23 @@ body, html {
   }
 } 
 
+@keyframes blurbFadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes blurbFadeOut {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+.blurbFadeIn {
+  animation: blurbFadeIn 1s ease-in-out forwards;
+}
+
+.blurbFadeOut {
+  animation: blurbFadeOut 1s ease-in-out forwards;
+}
 
 
 /* OUTPUT PAGE */
