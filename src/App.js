@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Start from "./components/Start";
 import Upload from "./components/Upload";
 import Improvements from "./components/Improvements";
+import Email from "./components/Email";
 import Loading from "./components/Loading";
 import Output from "./components/Output";
 import GoodOutcome from "./components/GoodOutcome";
@@ -32,17 +33,20 @@ function App() {
   const [selectedFile, setSelectedFile] = useState(null);
 
   //firebase
-  const ref = collection(firestore, "generated-logos");
+  // const ref = collection(firestore, "generated-logos");
+  const ref = collection(firestore, "test-logos");
   const handleSubmit = () => {
 
     let data = {
       company: userPrompt,
       image: imageUrl,
+      email: email,
     }
 
     try {
       console.log(userPrompt, " is the added company name");
       console.log(imageUrl, " is the added image url");
+      console.log(email, " is the added email")
       addDoc(ref, data);
     } catch (err) {
       console.log(err);
@@ -96,6 +100,7 @@ function App() {
 
   const [userPrompt, setUserPrompt] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [email, setEmail] = useState("");
   
   const [visionOutput, setVisionOutput] = useState("");
 
@@ -149,13 +154,17 @@ function App() {
   }, [visionOutput, generateImage]);
 
   useEffect(() => {
-    if (imageUrl) {
+    if (imageUrl && email) {
       handleSubmit();
     }
-  }, [imageUrl]);
+  }, [imageUrl, email]);
 
   const updateUserPrompt = async (newPrompt) => {
     setUserPrompt(newPrompt);
+  }
+
+  const updateUserEmail = async (email) => {
+    setEmail(email);
   }
 
 
@@ -171,9 +180,13 @@ function App() {
         // handleSubmit={handleSubmit} 
         parseImage={parseImage}
       />}
-      {page === 3 && <Loading 
+      {page === 3 && <Email
+        onNext={handleNext}
+        updateUserEmail={updateUserEmail}
+      />}
+      {page === 4 && <Loading 
         onNext={handleNext}/>}
-      {page === 4 && <Output 
+      {page === 5 && <Output 
         redo={redo} 
         // response={response} 
         imageUrl={imageUrl}
@@ -181,10 +194,10 @@ function App() {
         onNext2={handleNext2}
       />}
 
-      {page === 5 && <GoodOutcome
+      {page === 6 && <GoodOutcome
         redo5={redo5}
       />}
-      {page === 6 && <BadOutcome
+      {page === 7 && <BadOutcome
         redo6={redo6}
       />}
     </>
